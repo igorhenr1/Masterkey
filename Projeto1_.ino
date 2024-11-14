@@ -236,7 +236,12 @@ void sendRequestigor() {
     // Processa o código de resposta
     // Encerra a conexão HTTP
     http.end();
-    http.begin("35.247.202.97:5000/relatorio");
+
+    http.begin("http://35.247.202.97:5000/relatorio");
+    // Corpo da requisição
+    String jsonBody = "{\"message\":\"hello world\"}";
+    // Envia a requisição POST
+    int httpResponseCode = http.POST(jsonBody);
     http.end();
 }
 
